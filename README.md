@@ -1,4 +1,4 @@
-# Release dates for upcomig games
+# Release dates for upcoming games
 
 
 ## 
