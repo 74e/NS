@@ -37,7 +37,6 @@
     <div class="bg_overlay foreground">
         <div class="triangle_tl foreground"></div>
         <div class="triangle_l foreground"></div>
-        <div class="triangle_u foreground"></div>
     </div>
 
     <footer>
@@ -61,13 +60,6 @@
                 "margin-top": "0"
             });
         });
-
-
-
-
-
-
-
         /* ####
         #######
         ####### Searchbar functionality starts here
@@ -77,11 +69,9 @@
         $(".search_box").on("keyup", function () {
             let s_val = $(this).val().toLowerCase();
             console.log(s_val);
-
             $(".box").each(function (i) {
                 let g_current = $(this);
                 let g_title = g_current.find(".game_title").text().toLowerCase();
-
                 if (!g_title.includes(s_val)) {
                     g_current.css({
                         "display": "none"
@@ -93,13 +83,6 @@
                 }
             });
         });
-
-
-
-
-
-
-
         /* ####
         #######
         #######  Game-Element generation/assembly starts here
@@ -110,20 +93,14 @@
             var pad = new Array(1 + padlen).join(pad_char);
             return (pad + num).slice(-pad.length);
         }
-
         // Set the date we're counting down to
         var countDownDate = new Date().getTime();
         var timer_i = 0;
         var intervals = {};
-
-
         $.getJSON("data/games.json", {}, function (data) {
-
             for (const [key, value] of Object.entries(data)) {
                 console.log(key, value);
-
                 var timer = "timer" + timer_i;
-
                 $("body .content").append(
                     `<div class="box">
                        <div class="overlay"></div>
@@ -132,17 +109,12 @@
                        <div class="timerbox">
                            <p id="${timer}"></p>
                        </div>
-                   </div>`
+                     </div>`
                 );
-
-
                 (function (timer) {
                     // Add it to an array so it can be killed if needed
                     intervals[timer] = setInterval(function () {
-
                         var element = $(`#${timer}`);
-
-
                         // If there's no date yet
                         if (value[0].startsWith("TBC")) {
                             element.html(`<span class="to_be_confirmed">${value[0]}</span>`);
@@ -156,9 +128,6 @@
                             var now = new Date().getTime();
                             var released = false;
                         }
-
-
-
                         if (now > countDownDate) {
                             // This means we're past the date so it released
                             released = true;
@@ -169,10 +138,8 @@
                             clearInterval(intervals[timer]);
                             return;
                         }
-
                         // Find the distance between now an the count down date
                         var distance = countDownDate - now;
-
                         // Time calculations for days, hours, minutes and seconds
                         var days = Math.floor(distance / (1000 * 60 * 60 * 24));
                         var hours = pad(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 *
@@ -180,8 +147,6 @@
                         var minutes = pad(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
                             2);
                         var seconds = pad(Math.floor((distance % (1000 * 60)) / 1000), 2);
-
-
                         if (!released) {
                             if (days > 0) {
                                 element.html(days + ":" + hours + ":" + seconds);
@@ -190,10 +155,8 @@
                                     minutes + ":" + seconds);
                             }
                         }
-
                     }, 1000);
                 })(timer);
-
                 timer_i++;
             }
         });
