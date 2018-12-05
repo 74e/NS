@@ -3,8 +3,7 @@
     font-family: Gotham;
 }
 
-body,
-html {
+body, html {
     width: 100%;
     height: 100%;
     margin: 0;
@@ -31,7 +30,7 @@ body {
 #particles-js {
     width: 100%;
     height: 100%;
-    position: absolute;
+    position: fixed;
     z-index: 2;
 }
 
@@ -139,12 +138,12 @@ header .fancy .smaller {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(130deg, #9083c7 0%, #688291 85%, #8e9696 100%);
+    background-color: #181b21;
     z-index: 0;
 }
 
 .content {
-    width: 38%;
+    width: 32%;
     height: auto;
     min-height: 400px;
     z-index: 5;
@@ -159,16 +158,16 @@ header .fancy .smaller {
 
 
 .box {
-    margin: 14px;
-    width: 330px;
-    height: 80px;
+    margin: 0 0 10px 0;
+    width: 400px;
+    height: 55px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: Montserrat;
     font-size: 20px;
     color: #f2f2f2;
-    border-radius: 2px;
+    border-radius: 8px;
     flex-direction:row;
     background-color: #181b21;
     background-image: linear-gradient(130deg, #6c52d9 0%, #1eaafc 85%, #3edfd7 100%);
@@ -183,7 +182,6 @@ header .fancy .smaller {
 
 
 .box:hover{
-    animation: pulse 0.6s 1;
     transform: scale(0.975, 0.975);
 }
 
@@ -192,7 +190,7 @@ header .fancy .smaller {
     animation-delay: 0.001s;
 }
 
-@keyframes pulse {to {box-shadow: 0 0 0 23px rgba(12, 16, 0, 0);}
+@keyframes {
    0%   {box-shadow: 0 0 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);}
    25%  {box-shadow: 0 0 15px rgba(0, 0, 0, 0.19), 0 4px 4px rgba(0, 0, 0, 0.23);}
    50%  {box-shadow: 0 0 10px rgba(0, 0, 0, 0.19), 0 3px 3px rgba(0, 0, 0, 0.23);}
@@ -238,6 +236,7 @@ header .fancy .smaller {
     height: 100%;
     left: 0;
     top: 0;
+    border-radius: 1px;
     background-color: #181b21;
     opacity: 0.7;
     z-index: 3;
@@ -245,7 +244,7 @@ header .fancy .smaller {
 
 footer {
     width: 100%;
-    height: 150px;
+    height: 0px;
     z-index: 5;
     display: flex;
     justify-content: center;
@@ -264,33 +263,6 @@ footer a {
     border-radius: 2px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     color: #7289da;
-}
-
-.bg_overlay {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
-}
-
-.triangle_tl {
-    width: 0;
-    height: 0;
-    border-top:2000px solid #181b21;
-    border-right: 500px solid transparent;
-}
-
-.triangle_l {
-    width: 0;
-    height: 0;
-    border-top: 00px solid transparent;
-    border-right: 900px solid #181b21;
-    border-bottom: 1000px solid transparent;
-    position: absolute;
-    right: 0;
-    top: 0;
 }
 
 .released {
