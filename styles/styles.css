@@ -1,12 +1,9 @@
-/* ---- reset ---- */ 
-body{
-    margin:0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-} 
+@font-face {
+    src: url("../fonts/Gotham\ Bold\ Regular.ttf");
+    font-family: Gotham;
+}
 
+body,
 html {
     width: 100%;
     height: 100%;
@@ -14,28 +11,27 @@ html {
     padding: 0;
 }
 
-/* ---- particles.js container ---- */ 
-#particles-js{
-    z-index: -1;
-    position:absolute; 
-    width: 100%; 
-    height: 100%; 
-    background-color: #181b21; 
-    background-image: url(""); 
-    background-repeat: no-repeat; 
-    background-size: cover; 
-    background-position: 50% 50%; 
-}
-
 p {
     margin: 0;
     padding: 0;
 }
 
+body {
+    background: #181b21;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.foreground {
+    z-index: 1;
+}
+
 header {
     width: 100%;
     height: 15vh;
-    margin: 40 0 40 0; /* 40 0 0 0 With search bar*/
+    margin: 40px 0 0 0;
     z-index: 5;
     display: flex;
     justify-content: center;
@@ -130,6 +126,16 @@ header .fancy .smaller {
     outline: none;
 }
 
+.body_bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(130deg, #9083c7 0%, #688291 85%, #8e9696 100%);
+    z-index: 0;
+}
+
 .content {
     width: 38%;
     height: auto;
@@ -146,9 +152,9 @@ header .fancy .smaller {
 
 
 .box {
-    margin: 1 1 4 1px;
-    width: 430px;
-    height: 50px;
+    margin: 14px;
+    width: 330px;
+    height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -185,6 +191,12 @@ header .fancy .smaller {
    50%  {box-shadow: 0 0 10px rgba(0, 0, 0, 0.19), 0 3px 3px rgba(0, 0, 0, 0.23);}
    75%  {box-shadow: 0 0 5px rgba(0, 0, 0, 0.19), 0 2px 2px rgba(0, 0, 0, 0.23);}
    100%  {box-shadow: 0 0 0px rgba(0, 0, 0, 0.19), 0 0px 0px rgba(0, 0, 0, 0.23);}
+}
+
+
+.background {
+    width: 100%;
+    min-height: 100%;
 }
 
 .box>p {
@@ -245,6 +257,65 @@ footer a {
     border-radius: 2px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     color: #7289da;
+}
+
+.bg_overlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.triangle_tl {
+    width: 0;
+    height: 0;
+    border-top:2000px solid #181b21;
+    border-right: 500px solid transparent;
+}
+
+.triangle_l {
+    width: 0;
+    height: 0;
+    border-top: 00px solid transparent;
+    border-right: 900px solid #181b21;
+    border-bottom: 1000px solid transparent;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.released {
+    color: #a40052;
+}
+
+.to_be_confirmed {
+    color: #797979;
+}
+
+::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    color: #f2f2f2;
+    opacity: 0.1;
+}
+
+::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #f2f2f2;
+    opacity: 0.1;
+}
+
+:-ms-input-placeholder {
+    /* IE 10+ */
+    color: #f2f2f2;
+    opacity: 0.1;
+}
+
+:-moz-placeholder {
+    /* Firefox 18- */
+    color: #f2f2f2;
+    opacity: 0.1;
 }
 
 @media screen and (max-width: 1800px) {
