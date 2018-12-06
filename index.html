@@ -166,6 +166,21 @@
                 timer_i++;
             }
         });
+
+        //Sneaky!
+        let click = false;
+        $(".sneaky").on("click", function() {
+            console.log("CLICK");
+            if(click == false) {
+                $("body").css({"background-image":"url(\"https://thumbs.gfycat.com/IdealisticHighDassie-size_restricted.gif\""});
+                $("#particles-js, .body_bg").css("display", "none");
+                
+            } else {
+                $("#particles-js, .body_bg").css("display", "block");
+                $("body").css({"background-image":"none"});
+            }
+            click = !click;
+        });
     </script>
 </body>
 
