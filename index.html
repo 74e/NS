@@ -99,6 +99,10 @@
             var pad = new Array(1 + padlen).join(pad_char);
             return (pad + num).slice(-pad.length);
         }
+        var coord = {
+            x: Math.floor(Math.random() * (window.innerWidth - 0) + 0),
+            y: Math.floor(Math.random() * (window.innerHeight - 0) + 0),
+        }
         // Set the date we're counting down to
         var countDownDate = new Date().getTime();
         var timer_i = 0;
@@ -169,6 +173,7 @@
 
         //Sneaky!
         let click = false;
+        $(".sneaky").css({"left": coord.x, "bottom": coord.y});
         $(".sneaky").on("click", function() {
             console.log("CLICK");
             if(click == false) {
