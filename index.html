@@ -8,8 +8,7 @@
     <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <script src="scripts/particles.js"></script>
 </head>
 
@@ -173,6 +172,8 @@
 
         //Sneaky!
         let click = false;
+        let x = coord.x < 60 ? coord.x + 60 : coord.x - 60;
+        let y = coord.y < 60 ? coord.y + 60 : coord.y - 60;
         $(".sneaky").css({"left": coord.x, "bottom": coord.y});
         $(".sneaky").on("click", function() {
             console.log("CLICK");
