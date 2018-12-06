@@ -8,8 +8,7 @@
     <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <script src="scripts/particles.js"></script>
 </head>
 
@@ -47,6 +46,8 @@
             <a href="#BackToTop">Back to top</a>
         </p>
     </footer> -->
+
+    <div class="sneaky"><i class="fas fa-bible"></i></div>
 
     <script type="text/javascript" src="scripts/custom_particles.js"></script>
     <script>
@@ -96,6 +97,10 @@
             var pad_char = typeof padchar !== 'undefined' ? padchar : '0';
             var pad = new Array(1 + padlen).join(pad_char);
             return (pad + num).slice(-pad.length);
+        }
+        var coord = {
+            x: Math.floor(Math.random() * (window.innerWidth - 0) + 0),
+            y: Math.floor(Math.random() * (window.innerHeight - 0) + 0),
         }
         // Set the date we're counting down to
         var countDownDate = new Date().getTime();
@@ -164,6 +169,26 @@
                 timer_i++;
             }
         });
+
+        //Sneaky!
+        let click = false;
+        let x = coord.x < 60 ? coord.x + 60 : coord.x - 60;
+        let y = coord.y < 60 ? coord.y + 60 : coord.y - 60;
+        $(".sneaky").css({"left": x, "bottom": y});
+        $(".sneaky").on("click", function() {
+            console.log("CLICK");
+            if(click == false) {
+                $("body").css({"background-image":"url(\"https://thumbs.gfycat.com/IdealisticHighDassie-size_restricted.gif\""});
+                $("#particles-js, .body_bg").css("display", "none");
+                
+            } else {
+                $("#particles-js, .body_bg").css("display", "block");
+                $("body").css({"background-image":"none"});
+            }
+            click = !click;
+        });
+
+        console.log(x + "   " + y);
     </script>
 </body>
 
