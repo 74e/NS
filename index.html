@@ -174,7 +174,7 @@
         let click = false;
         let x = coord.x < 60 ? coord.x + 60 : coord.x - 60;
         let y = coord.y < 60 ? coord.y + 60 : coord.y - 60;
-        $(".sneaky").css({"left": coord.x, "bottom": coord.y});
+        $(".sneaky").css({"left": x, "bottom": y});
         $(".sneaky").on("click", function() {
             console.log("CLICK");
             if(click == false) {
@@ -187,6 +187,8 @@
             }
             click = !click;
         });
+
+        console.log(x + "   " + y);
     </script>
 </body>
 
