@@ -146,18 +146,13 @@
                         var distance = countDownDate - now;
                         // Time calculations for days, hours, minutes and seconds
                         var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                        var hours = pad(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 *
-                            60)), 2);
-                        var minutes = pad(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-                            2);
+                        var hours = pad(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)), 2);
+                        var minutes = pad(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)), 2);
                         var seconds = pad(Math.floor((distance % (1000 * 60)) / 1000), 2);
+                        
                         if (!released) {
-                            if (days > 0) {
-                                element.html(days + ":" + hours + ":" + seconds);
-                            } else {
-                                element.html(hours + ":" +
-                                    minutes + ":" + seconds);
-                            }
+                            // Show the entire timer if game not released yet
+                            element.html(days + ":" + hours + ":" + minutes + ":" + seconds);
                         }
                     }, 1000);
                 })(timer);
