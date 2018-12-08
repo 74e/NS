@@ -318,6 +318,9 @@ footer a {
     .box>p {
         width: 90%; !important
     }
+    .box .timerbox{
+        width: 90%; !important    
+    }
 }
 
 @media screen and (max-width: 860px) {
@@ -334,6 +337,9 @@ footer a {
     }
     .box>p {
         width: 90%; !important
+    }
+    .box .timerbox{
+        width: 90%; !important    
     }
     header .header_text {
         background-color: #181b21;
