@@ -326,7 +326,7 @@ footer a {
         margin-left: 30px;
     }
     header .fancy {
-        justify-content: flex-start;
+        justify-content: center;
         width: 100%;
         margin: 0;
     }
@@ -338,6 +338,7 @@ footer a {
     }
     .content {
         width: 100%;
+        padding-top: 300px;
     }
     .search_area {
         margin: 10px 0px 0px 0px;
