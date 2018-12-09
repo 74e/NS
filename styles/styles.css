@@ -182,7 +182,6 @@ header .fancy .smaller {
 
 
 .box:hover{
-    transform: scale(0.975, 0.975);
     box-shadow: none;
 }
 
