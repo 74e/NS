@@ -271,7 +271,7 @@ footer a {
 }
 
 ::-webkit-input-placeholder {
-    /* Chrome/Opera/Safari */
+    /*Chrome/Opera/Safari*/
     color: #f2f2f2;
     opacity: 0.1;
 }
