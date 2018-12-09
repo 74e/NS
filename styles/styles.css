@@ -168,7 +168,6 @@ header .fancy .smaller {
     align-items: center;
     font-family: Montserrat;
     color: #f2f2f2;
-    border-radius: 8px;
     flex-direction:row;
     background-color: #181b21;
     background-image: linear-gradient(130deg, #acf9ff 0%, #1eaafc 85%, #007ea3 100%);
@@ -255,7 +254,6 @@ header .fancy .smaller {
     height: 100%;
     left: 0;
     top: 0;
-    border-radius: 1px;
     background-color: #181b21;
     opacity: 0.7;
     z-index: 3;
