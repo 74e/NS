@@ -178,6 +178,7 @@ header .fancy .smaller {
     transition: all .5s;
     z-index: 2;
     border: 2px solid #181b21;
+    opacity: 0.8;
 }
 
 
