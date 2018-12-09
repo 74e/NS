@@ -196,6 +196,7 @@ header .fancy .smaller {
 .timelay{
     position: absolute;
     background-color: #181b21;
+    font-family: Gotham;
     z-index: 6;
     width: 100%;
     height: 100%;
