@@ -73,7 +73,6 @@
         $(".search_box").val("");
         $(".search_box").on("keyup", function () {
             let s_val = $(this).val().toLowerCase();
-            console.log(s_val);
             $(".box").each(function (i) {
                 let g_current = $(this);
                 let g_title = g_current.find(".game_title").text().toLowerCase();
@@ -104,11 +103,9 @@
         var intervals = {};
         $.getJSON("data/games.json", {}, function (data) {
             for (const [key, value] of Object.entries(data)) {
-                console.log(key, value);
                 var timer = "timer" + timer_i;
-                var vzero = value[0].startsWith("TBC") ? " " : value[0];
+                var vzero = value.startsWith("TBC") ? " " : value;
                 var dateover = vzero === " " ? "To Be Confirmed" : vzero.match(/(.*?\s){3}/g)[0];
-                console.log(dateover + " " + value[0])
                 $("body .content").append(
                     `<div class="box">
                        <div class="timelay">${dateover}</div>
@@ -124,15 +121,15 @@
                     intervals[timer] = setInterval(function () {
                         var element = $(`#${timer}`);
                         // If there's no date yet
-                        if (value[0].startsWith("TBC")) {
-                            element.html(`<span class="to_be_confirmed">${value[0]}</span>`);
+                        if (value.startsWith("TBC")) {
+                            element.html(`<span class="to_be_confirmed">${value}</span>`);
                             element.parent().parent().find(".overlay").css({
                                 "opacity": 0.9
                             });
                             clearInterval(intervals[timer]);
                             return;
                         } else {
-                            var countDownDate = new Date(value[0]).getTime();
+                            var countDownDate = new Date(value).getTime();
                             var now = new Date().getTime();
                             var released = false;
                         }
