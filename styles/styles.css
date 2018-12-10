@@ -159,8 +159,8 @@ header .fancy .smaller {
 
 .box {
     margin: 0 0 10px 0;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
     width: 440px;
     height: 55px;
     display: flex;
