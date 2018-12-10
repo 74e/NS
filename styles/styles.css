@@ -114,7 +114,7 @@ header .fancy .smaller {
     margin-left: 20px;
     padding-right: 20px;
     border-right: 1px solid rgba(242, 242, 242, 0.03);
-    background: linear-gradient(130deg, #6c52d9 0%, #1eaafc 85%, #3edfd7 100%);
+    background: linear-gradient(130deg, #acf9ff 0%, #1eaafc 85%, #007ea3 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -161,35 +161,28 @@ header .fancy .smaller {
     margin: 0 0 10px 0;
     margin-left: 10px;
     margin-right: 10px;
-    width: 400px;
+    width: 440px;
     height: 55px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: Montserrat;
-    font-size: 20px;
     color: #f2f2f2;
-    border-radius: 8px;
     flex-direction:row;
     background-color: #181b21;
-    background-image: linear-gradient(130deg, #6c52d9 0%, #1eaafc 85%, #3edfd7 100%);
+    background-image: linear-gradient(130deg, #acf9ff 0%, #1eaafc 85%, #007ea3 100%);
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     position: relative;
     overflow: hidden;
     transition: all .5s;
     z-index: 2;
     border: 2px solid #181b21;
-    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    opacity: 0.8;
 }
 
-
-.box:hover{
-    transform: scale(0.975, 0.975);
-}
 
 .box:hover{
     box-shadow: none;
-    animation-delay: 0.001s;
 }
 
 @keyframes {
@@ -200,6 +193,27 @@ header .fancy .smaller {
    100%  {box-shadow: 0 0 0px rgba(0, 0, 0, 0.19), 0 0px 0px rgba(0, 0, 0, 0.23);}
 }
 
+.timelay{
+    position: absolute;
+    background-color: #181b21;
+    font-family: Gotham;
+    z-index: 6;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity .5s ease-in;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 19px;
+    text-transform: uppercase;
+}
+
+.timelay:hover{
+    opacity: 1;
+    cursor: default
+}
 
 .background {
     width: 100%;
@@ -207,16 +221,18 @@ header .fancy .smaller {
 }
 
 .box>p {
-    display: block;
-    width: 70%;
     display: flex;
+    width: 70%;
     justify-content: center;
     align-items: center;
     z-index: 5;
     margin: 0;
     padding: 0;
-    transition: all .5s;
-    text-align: center;
+    text-align: flex-start;
+}
+
+.game_title{
+    font-size: 19px;
 }
 
 .box .timerbox {
@@ -238,7 +254,6 @@ header .fancy .smaller {
     height: 100%;
     left: 0;
     top: 0;
-    border-radius: 1px;
     background-color: #181b21;
     opacity: 0.7;
     z-index: 3;
@@ -276,7 +291,7 @@ footer a {
 }
 
 ::-webkit-input-placeholder {
-    /* Chrome/Opera/Safari */
+    /*Chrome/Opera/Safari*/
     color: #f2f2f2;
     opacity: 0.1;
 }
@@ -309,6 +324,18 @@ footer a {
     .search_container .search_box {
         font-size: 16px;
     }
+    
+    .box{
+        flex-direction: column;
+        width: 400px;
+        height: 65px;
+    }
+    .box>p {
+        width: 90%; !important
+    }
+    .box .timerbox{
+        width: 90%; !important    
+    }
 }
 
 @media screen and (max-width: 860px) {
@@ -317,6 +344,17 @@ footer a {
         height: 100px;
         padding: 50px 0 10px 0;
         margin: 0;
+    }
+    .box{
+        flex-direction: column;
+        width: 400px;
+        height: 65px;
+    }
+    .box>p {
+        width: 90%; !important
+    }
+    .box .timerbox{
+        width: 90%; !important    
     }
     header .header_text {
         background-color: transparent;

@@ -1,7 +1,7 @@
 pJS("particles-js", {
     "particles": {
         "number": {
-            "value": 95,
+            "value": 80,
             "density": {
                 "enable": true,
                 "value_area": 800
@@ -54,7 +54,7 @@ pJS("particles-js", {
         },
         "move": {
             "enable": true,
-            "speed": 6,
+            "speed": 2,
             "direction": "none",
             "random": false,
             "straight": false,
@@ -75,7 +75,7 @@ pJS("particles-js", {
                 "mode": "bubble"
             },
             "onclick": {
-                "enable": true,
+                "enable": false,
                 "mode": "push"
             },
             "resize": true

@@ -3,6 +3,7 @@
 
 <head>
     <title>Release Berry</title>
+    <meta name="theme-color" content="#181b21">
     <link rel="stylesheet" type="text/css" href="styles/styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
@@ -97,7 +98,7 @@
             var pad = new Array(1 + padlen).join(pad_char);
             return (pad + num).slice(-pad.length);
         }
-        // Set the date we're counting down to
+         // Set the date we're counting down to
         var countDownDate = new Date().getTime();
         var timer_i = 0;
         var intervals = {};
@@ -105,10 +106,13 @@
             for (const [key, value] of Object.entries(data)) {
                 console.log(key, value);
                 var timer = "timer" + timer_i;
+                var vzero = value[0].startsWith("TBC") ? " " : value[0];
+                var dateover = vzero === " " ? "To Be Confirmed" : vzero.match(/(.*?\s){3}/g)[0];
+                console.log(dateover + " " + value[0])
                 $("body .content").append(
                     `<div class="box">
+                       <div class="timelay">${dateover}</div>
                        <div class="overlay"></div>
-                       <div class="cover"></div>
                        <p class="game_title">${key}</p>
                        <div class="timerbox">
                            <p id="${timer}"></p>
