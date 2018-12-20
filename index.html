@@ -100,8 +100,8 @@
         $.getJSON("data/games.json", {}, function (data) {
             for (const [key, value] of Object.entries(data)) {
                 var timer = "timer" + timer_i;
-                var vzero = value.startsWith("TBC") ? " " : value;
-                var dateover = vzero === " " ? "To Be Confirmed" : vzero.match(/(.*?\s){3}/g)[0];
+                var vzero = value.startsWith("TBD") ? " " : value;
+                var dateover = vzero === " " ? "To Be Determined" : vzero.match(/(.*?\s){3}/g)[0];
                 $("body .content").append(
                     `<div class="box">
                        <div class="timelay">${dateover}</div>
@@ -117,7 +117,7 @@
                     intervals[timer] = setInterval(function () {
                         var element = $(`#${timer}`);
                         // If there's no date yet
-                        if (value.startsWith("TBC")) {
+                        if (value.startsWith("TBD")) {
                             element.html(`<span class="to_be_confirmed">${value}</span>`);
                             element.parent().parent().find(".overlay").css({
                                 "opacity": 0.9
@@ -147,8 +147,10 @@
                         var minutes = pad(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)), 2);
                         var seconds = pad(Math.floor((distance % (1000 * 60)) / 1000), 2);
                         
-                        if (!released) {
+                        if (days > 2) {
                             // Show the entire timer if game not released yet
+                            element.html(days + " Days");
+                        }else{
                             element.html(days + ":" + hours + ":" + minutes + ":" + seconds);
                         }
                     }, 1000);
