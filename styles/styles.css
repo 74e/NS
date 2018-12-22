@@ -265,7 +265,9 @@ footer a {
 }
 
 .released {
-    color: #a40052;
+    color: rgb(159, 255, 226);
+    font-family: Gotham;
+    
 }
 
 .to_be_confirmed {
