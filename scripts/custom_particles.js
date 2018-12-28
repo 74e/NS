@@ -13,7 +13,7 @@ pJS("particles-js", {
         "shape": {
             "type": "circle",
             "stroke": {
-                "width": 1,
+                "width": 0.01,
                 "color": "#8fc8c4"
             },
             "polygon": {
@@ -54,7 +54,7 @@ pJS("particles-js", {
         },
         "move": {
             "enable": true,
-            "speed": 2,
+            "speed": 1,
             "direction": "none",
             "random": false,
             "straight": false,
@@ -71,7 +71,7 @@ pJS("particles-js", {
         "detect_on": "canvas",
         "events": {
             "onhover": {
-                "enable": true,
+                "enable": false,
                 "mode": "bubble"
             },
             "onclick": {
