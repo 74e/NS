@@ -27,14 +27,9 @@
                     RELEASE BERRY
                 </div>
             </div>
+            
         </header>
         <div class="search_area">
-            <div class="search_container">
-                <div class="icon">
-                    <i class="fas fa-search"></i>
-                </div>
-                <input class="search_box" placeholder="Search for a game">
-            </div>
         </div>
     </main>
 
@@ -46,60 +41,6 @@
 
     <script type="text/javascript" src="scripts/custom_particles.js"></script>
     <script>
-
-                  /* ####
-        #######
-        ####### Minor tweaks for animations
-        #######
-        ####*/
-        $(".search_box").on("focus", function () {
-            $("header").css({
-                "margin-top": "-50vh"
-            });
-        }).on("focusout", function () {
-            $("header").css({
-                "margin-top": "0"
-            });
-        });
-
-
-
-
-
-
-
-        /* ####
-        #######
-        ####### Searchbar functionality starts here
-        #######
-        ####*/
-        $(".search_box").val(""); // Empty the search box
-        // Whenever a key is released (a full keypress) 
-        $(".search_box").on("keyup", function () {
-            let s_val = $(this).val().toLowerCase(); // Make it lowercase
-
-            // For every .box element (every game)
-            $(".box").each(function (i) {
-                let g_current = $(this);
-                let g_title = g_current.find(".game_title").text().toLowerCase();
-
-                // Compare the titles and hide the ones
-                // that don't match
-                if (!g_title.includes(s_val)) {
-                    g_current.css({
-                        "display": "none"
-                    });
-                } else {
-                    g_current.css({
-                        "display": "flex"
-                    });
-                }
-            });
-        });
-
-
-
-
 
 
 
