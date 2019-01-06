@@ -286,7 +286,6 @@ footer a {
         height: 100px;
         padding: 80px 0 1px 0;
         margin: 0;
-        flex-direction: row;
     }
     .box{
         flex-direction: column;
@@ -295,11 +294,9 @@ footer a {
     }
     .box>p {
         width: 90% !important;
-        font-size: 3.5vw;
     }
     .box .timerbox{
         width: 90% !important;
-        font-size: 3.5vw;
     }
     header .header_text {
         background-color: transparent;
@@ -322,23 +319,5 @@ footer a {
     .content {
         width: 100%;
         padding-top: 300px;
-    }
-    .search_area {
-        margin: 10px 0px 0px 0px;
-        justify-content: flex-start;
-        padding-left: 30px;
-    }
-    .search_container {
-        width: 400px;
-        margin: 0 30px 0 30px 0 !important;
-        box-shadow: none;
-        background-color: transparent;
-    }
-    .search_container .search_box {
-        font-size: 16px;
-    }
-    .search_container .icon {
-        font-size: 12px;
-        width: 30px;
     }
 }
