@@ -284,7 +284,6 @@ footer a {
     header {
         font-size: 7vw;
         height: 100px;
-        padding: 80px 0 1px 0;
         margin: 0;
     }
     .box{
@@ -318,6 +317,5 @@ footer a {
     }
     .content {
         width: 100%;
-        padding-top: 300px;
     }
 }
