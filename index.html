@@ -192,15 +192,19 @@
                         var minutes = pad(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
                             2);
                         var seconds = pad(Math.floor((distance % (1000 * 60)) / 1000), 2);
-
+                        days ++;
 
                         if (days > 2) {
                             element.html(days + " days");
-                        } else {
-                            element.html(days + ":" + hours + ":" +
+                        } else if (days == 1) {
+                            days --;
+                            element.html(hours + ":" +
                                 minutes + ":" + seconds);
+                        } else {
+                           days --;
+                            element.html(days + ":" + hours + ":" +
+                                minutes + ":" + seconds);   
                         }
-
 
                     }, 1000);
                 })(timer);
