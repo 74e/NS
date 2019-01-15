@@ -192,7 +192,7 @@
                         var minutes = pad(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
                             2);
                         var seconds = pad(Math.floor((distance % (1000 * 60)) / 1000), 2);
-
+                        days ++;
 
                         if (days > 2) {
                             element.html(days + " days");
