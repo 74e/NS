@@ -31,7 +31,6 @@ body {
     display: flex;
     justify-content: center;
 
-
 }
 
 #particles-js {
@@ -131,20 +130,15 @@ header .fancy {
     outline: none;
 }
 
-#actualmain{
-    position: absolute;
-    margin-bottom: 50px;
-}
-
 .content {
-    width: 100%; /*subject to change*/
+    width: 62%; /*subject to change*/
     height: auto;
     min-height: 400px;
     z-index: 5;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-wrap: wrap;
     transition: all .5s;
     overflow-x: hidden;
 }
@@ -169,17 +163,17 @@ header .fancy {
 }
 
 .box {
-    margin: 0 0 15px 0;
+    margin: 0 0 10px 0;
     margin-left: 5px;
     margin-right: 5px;
-    width: 600px;
-    height: 105px;
+    width: 440px;
+    height: 55px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: Montserrat;
     color: var(--light-font);
-    flex-direction:column;
+    flex-direction:row;
     background-color: var(--dark-blue);
     background-image: var(--gradient-bg);
     box-shadow: var(--box-shadow);
@@ -223,35 +217,8 @@ header .fancy {
 
 .timelay:hover{
     opacity: 1;
-    cursor: default;
+    cursor: default
 }
-
-.timetell{
-    z-index: 3;
-}
-
-divu p {
-    float: left;
-
-}
-
-.timetelld{
-margin-left: 10px;
-margin-right: 60px; 
-}
-
-.timetellh{
-margin-right: 30px; 
-}
-
-.timetellm{
-margin-right: 0px; 
-}
-
-.timetells{
-margin-left: 30px; 
-}
-
 
 .box>p {
     display: flex;
@@ -265,19 +232,19 @@ margin-left: 30px;
 }
 
 .game_title{
-    font-size: 22px;
-    padding-top: 15px;
+    font-size: 19px;
 }
 
 .box .timerbox {
-    width: 80%;
-    float:right !important;
+    width: 30%;
+    display: flex;
+    justify-content: center;
     z-index: 5;
     margin: 0;
     padding: 0;
     transition: all .5s;
     color: var(--light-blue);
-    font-size: 50px;
+    font-size: 19px;
     text-align: center;
 }
 
@@ -351,7 +318,7 @@ footer a {
 
 @media screen and (max-width: 1800px) {
     .content {
-        width: 100%;
+        width: 90%;
     }
     .search_container {
         width: 600px;
@@ -361,14 +328,14 @@ footer a {
     }
     
     .box{
-
+        flex-direction: column;
+        width: 400px;
+        height: 65px;
     }
     .box>p {
-        font-size: 23px;
         width: 90% !important;
     }
     .box .timerbox{
-        font-size: 45px;
         width: 90% !important;
     }
 }
@@ -386,13 +353,16 @@ footer a {
         height: 65px;
     }
     .box>p {
-        font-size: 20px !important;
         width: 90% !important;
     }
     .box .timerbox{
-        font-size: 30px !important;
         width: 90% !important;
     }
+    
+    #switch{
+        display: none;
+    }
+    
     header .header_text {
         background-color: transparent;
         padding: 3vh 5vw 3vh 0;
