@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Release Berry</title>
+    <meta name="theme-color" content="#181b21">
+    <link rel="stylesheet" type="text/css" href="stylez/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
+        crossorigin="anonymous">
+    <script src="scripts/particles.js"></script>
+</head>
+
+<body>
+    <a id="switch" href="https://74e.github.io">Change Layout</a>
+    
+    <div id="particles-js">
+        <canvas class="particles-js-canvas-el" style="width: 100%; height: 100%;" width="1920" height="966"></canvas>
+    </div>
+
+    <main class="content">
+        <header id="BackToTop">
+            <div class="header_text">
+                <div class="fancy">
+                    RELEASE BERRY
+                </div>
+            </div>
+        </header>
+        <div class="search_area">
+            <div class="search_container">
+                <div class="icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <input class="search_box" placeholder="Search for a game">
+            </div>
+        </div>
+    </main>
+
+    <!--<footer>
+        <p> 
+            <a href="#BackToTop">Back to top</a>
+        </p>
+    </footer> -->
+
+    <script type="text/javascript" src="scripts/custom_particles.js"></script>
+    <script>
+
+                  /* ####
+        #######
+        ####### Minor tweaks for animations
+        #######
+        ####*/
+        $(".search_box").on("focus", function () {
+            $("header").css({
+                "margin-top": "-50vh"
+            });
+        }).on("focusout", function () {
+            $("header").css({
+                "margin-top": "0"
+            });
+        });
+
+
+
+
+
+
+
+        /* ####
+        #######
+        ####### Searchbar functionality starts here
+        #######
+        ####*/
+        $(".search_box").val(""); // Empty the search box
+        // Whenever a key is released (a full keypress) 
+        $(".search_box").on("keyup", function () {
+            let s_val = $(this).val().toLowerCase(); // Make it lowercase
+
+            // For every .box element (every game)
+            $(".box").each(function (i) {
+                let g_current = $(this);
+                let g_title = g_current.find(".game_title").text().toLowerCase();
+
+                // Compare the titles and hide the ones
+                // that don't match
+                if (!g_title.includes(s_val)) {
+                    g_current.css({
+                        "display": "none"
+                    });
+                } else {
+                    g_current.css({
+                        "display": "flex"
+                    });
+                }
+            });
+        });
+
+
+
+
+
+
+
+        /* ####
+        #######
+        #######  Game-Element generation/assembly starts here
+        #######
+        ####*/
+
+
+        // Set the date we're counting down to
+        var countDownDate = new Date().getTime();
+        var timer_i = 0; // Increment for each new timer, so they have an id.
+        var intervals = {}; // All the running timers, can be accessed to stop realeased titles
+
+        // Request the game list from the local files
+        $.getJSON("data/games.json", {}, function (data) {
+
+            for (const [key, value] of Object.entries(data)) {
+
+                var timer = "timer" + timer_i;
+                // Check if the game has a release date or not
+                var isTBC = value[0].startsWith("TBC");
+
+
+                // If there's no release date, don't make an interval
+                if (isTBC) {
+
+                    $("body .content").append(buildBox(key, value[1], timer,
+                        `<span class="to_be_confirmed">TBD</span>`));
+
+                    timer_i++;
+                    continue;
+
+                } else {
+                    /**
+                    * THIS IS NOT GOING TO BE GOOD IF YOU END
+                    * UP HAVING A VERY LONG LIST OF GAMES.. just sayin...
+                    * so maybe don't keep all released games for too long
+                    */
+                    // Check if the game is released or not
+                    var countDownDate = new Date(value[0]).getTime();
+                    var now = new Date().getTime();
+                    var isReleased = now > countDownDate;
+
+                    if(isReleased) {
+                        $("body .content").append(buildBox(key, value[1], timer,
+                            `<span class="released">RELEASED</span>`));
+                    
+                        timer_i++;
+                        continue;    
+                    }
+                }
+
+                // If the game has a timer, it'll be added at the top of the list
+                $("body .content .search_area").after(buildBox(key, value[1], timer));
+
+
+
+                (function (timer) {
+                    // Add it to an array so it can be killed if needed
+                    intervals[timer] = setInterval(function () {
+
+                        var element = $(`#${timer}`);
+                        var elementParent = element.parent().parent();
+
+                        var countDownDate = new Date(value[0]).getTime();
+                        var now = new Date().getTime();
+
+
+
+                        if (now > countDownDate) {
+                            // This means we're past the date so it released
+                            element.html(`<span class="released">RELEASED</span>`);
+                            elementParent.find(".overlay").css({
+                                "opacity": 0.9
+                            });
+            
+                            clearInterval(intervals[timer]);
+                            return;
+                        }
+
+                        // Find the distance between now an the count down date
+                        var distance = countDownDate - now;
+
+                        // Time calculations for days, hours, minutes and seconds
+                        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                        var hours = pad(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 *
+                            60)), 2);
+                        var minutes = pad(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+                            2);
+                        var seconds = pad(Math.floor((distance % (1000 * 60)) / 1000), 2);
+                        days ++;
+
+                        if (days > 2) {
+                            element.html(days + " days");
+                        } else if (days == 1) {
+                            days --;
+                            element.html(hours + ":" + minutes + ":" + seconds);
+                        } else {
+                           days --;
+                            element.html(days + ":" + hours + ":" + minutes + ":" + seconds);   
+                        }
+
+
+                    }, 1000);
+                })(timer);
+
+                timer_i++;
+            }
+        });
+
+
+
+
+
+
+
+
+
+        // Used to pad timers with 0s so instead of 1:20 it's 01:20 (for example)
+        function pad(num, padlen, padchar) {
+            var pad_char = typeof padchar !== 'undefined' ? padchar : '0';
+            var pad = new Array(1 + padlen).join(pad_char);
+            return (pad + num).slice(-pad.length);
+        }
+
+
+
+        function buildBox(gameTitle, releaseInfo, timerId, status = "") {
+            return `<div class="box">
+                <div class="timelay">${releaseInfo}</div>
+                <div class="overlay"></div>
+                <p class="game_title">${gameTitle}</p>
+                <div class="timerbox">
+                    <p id="${timerId}">${status}</p>
+                </div>
+            </div>`;
+        }
+    </script>
+</body>
+
+
+</html>
