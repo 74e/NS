@@ -31,6 +31,7 @@ body {
     display: flex;
     justify-content: center;
 
+
 }
 
 #particles-js {
@@ -130,15 +131,20 @@ header .fancy {
     outline: none;
 }
 
+#actualmain{
+    position: absolute;
+    margin-bottom: 50px;
+}
+
 .content {
-    width: 62%; /*subject to change*/
+    width: 100%; /*subject to change*/
     height: auto;
     min-height: 400px;
     z-index: 5;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    flex-direction: column;
     transition: all .5s;
     overflow-x: hidden;
 }
@@ -163,17 +169,17 @@ header .fancy {
 }
 
 .box {
-    margin: 0 0 10px 0;
+    margin: 0 0 15px 0;
     margin-left: 5px;
     margin-right: 5px;
-    width: 440px;
-    height: 55px;
+    width: 600px;
+    height: 105px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: Montserrat;
     color: var(--light-font);
-    flex-direction:row;
+    flex-direction:column;
     background-color: var(--dark-blue);
     background-image: var(--gradient-bg);
     box-shadow: var(--box-shadow);
@@ -217,8 +223,35 @@ header .fancy {
 
 .timelay:hover{
     opacity: 1;
-    cursor: default
+    cursor: default;
 }
+
+.timetell{
+    z-index: 3;
+}
+
+divu p {
+    float: left;
+
+}
+
+.timetelld{
+margin-left: 10px;
+margin-right: 60px; 
+}
+
+.timetellh{
+margin-right: 30px; 
+}
+
+.timetellm{
+margin-right: 0px; 
+}
+
+.timetells{
+margin-left: 30px; 
+}
+
 
 .box>p {
     display: flex;
@@ -232,19 +265,19 @@ header .fancy {
 }
 
 .game_title{
-    font-size: 19px;
+    font-size: 22px;
+    padding-top: 15px;
 }
 
 .box .timerbox {
-    width: 30%;
-    display: flex;
-    justify-content: center;
+    width: 80%;
+    float:right !important;
     z-index: 5;
     margin: 0;
     padding: 0;
     transition: all .5s;
     color: var(--light-blue);
-    font-size: 19px;
+    font-size: 50px;
     text-align: center;
 }
 
@@ -318,7 +351,7 @@ footer a {
 
 @media screen and (max-width: 1800px) {
     .content {
-        width: 90%;
+        width: 100%;
     }
     .search_container {
         width: 600px;
@@ -328,14 +361,14 @@ footer a {
     }
     
     .box{
-        flex-direction: column;
-        width: 400px;
-        height: 65px;
+
     }
     .box>p {
+        font-size: 23px;
         width: 90% !important;
     }
     .box .timerbox{
+        font-size: 45px;
         width: 90% !important;
     }
 }
@@ -353,9 +386,11 @@ footer a {
         height: 65px;
     }
     .box>p {
+        font-size: 20px !important;
         width: 90% !important;
     }
     .box .timerbox{
+        font-size: 30px !important;
         width: 90% !important;
     }
     header .header_text {
@@ -379,6 +414,11 @@ footer a {
     .content {
         width: 100%;
     }
+    
+    #switch{
+        display: none;
+    }
+    
     .search_area {
         margin: 10px 0px 0px 0px;
         justify-content: flex-start;
