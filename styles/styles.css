@@ -6,10 +6,10 @@
 /* Variables */
 :root {
     --dark-blue: #181b21;
-    --light-blue: #d642f0;
+    --light-blue: #1eaafc;
     --light-font: #f2f2f2;
 
-    --gradient-bg: linear-gradient(130deg, #5c3d76 0%, #9e19f0 85%, #650df0 100%);
+    --gradient-bg: linear-gradient(130deg, #acf9ff 0%, #1eaafc 85%, #007ea3 100%);
     --box-shadow: 0 0 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
