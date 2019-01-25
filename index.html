@@ -196,8 +196,11 @@
                         var seconds = pad(Math.floor((distance % (1000 * 60)) / 1000), 2);
                         days ++;
 
-                        if (days > 0) {
+                        if (days > 1) {
                             element.html(days + " " + "   " + "   " + "   " + hours + " : " + minutes + " : " + seconds);
+                        }else (days <= 1) {
+                            days --;
+                            element.html(hours + ":" + minutes + ":" + seconds);
                         }
 
 
