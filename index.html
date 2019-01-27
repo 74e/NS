@@ -198,7 +198,8 @@
                         if (days > 2) {
                             element.html(days + " days");
                         } else if (days <= 2) {
-                            element.html(hours + ":" + minutes + ":" + seconds);
+                            days --;
+                            element.html(days + ":" + hours + ":" + minutes + ":" + seconds);
                         } else {
                            days --;
                             element.html(days + ":" + hours + ":" + minutes + ":" + seconds);   
