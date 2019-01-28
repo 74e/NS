@@ -117,7 +117,7 @@
         var intervals = {}; // All the running timers, can be accessed to stop realeased titles
 
         // Request the game list from the local files
-        $.getJSON("data/games.json", {}, function (data) {
+        $.getJSON("old/data/games.json", {}, function (data) {
 
             for (const [key, value] of Object.entries(data)) {
 
