@@ -48,6 +48,21 @@
     <script type="text/javascript" src="scripts/custom_particles.js"></script>
     <script>
 
+                          /* ####
+        #######
+        ####### Minor tweaks for animations
+        #######
+        ####*/
+        $(".search_box").on("focus", function () {
+            $("header").css({
+                "margin-top": "-0.1px"
+            });
+        }).on("focusout", function () {
+            $("header").css({
+                "margin-top": "0"
+            });
+        });
+
 
         $('.timelay').on('click',function(){
     
