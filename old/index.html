@@ -3,7 +3,7 @@
 
 <head>
     <title>Release Berry</title>
-    <meta name="theme-color" content="#181b21">
+    <meta name="theme-color" content="#000000">
     <link rel="stylesheet" type="text/css" href="stylez/styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
@@ -181,11 +181,11 @@
                         var seconds = pad(Math.floor((distance % (1000 * 60)) / 1000), 2);
 
                         if (days > 1) {
-                            element.html(days + "D " + hours + "H " + minutes + "M " + seconds + "S");
+                            element.html(days + "D " + hours + "H " + minutes + "M ");
                         } else if (days < 1){
                             element.html(hours + "H " + minutes + "M " + seconds + "S");
                         } else {
-                            element.html(days + "D " + hours + "H " + minutes + "M " + seconds + "S"); 
+                            element.html(days + "D " + hours + "H " + minutes + "M "); 
                         }
 
 
