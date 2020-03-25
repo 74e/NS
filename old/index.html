@@ -4,7 +4,7 @@
 <head>
     <title>Release Berry</title>
     <meta name="theme-color" content="#181b21">
-    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <link rel="stylesheet" type="text/css" href="stylez/styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -15,30 +15,30 @@
 </head>
 
 <body>
-    <a id="switch" href="https://74e.github.io/old">Change Layout</a>
-    
+    <a id="switch" href="https://74e.github.io">Change Layout</a>
+
     <div id="particles-js">
         <canvas class="particles-js-canvas-el" style="width: 100%; height: 100%;" width="1920" height="966"></canvas>
     </div>
-
-    <main class="content">
-        <header id="BackToTop">
-            <div class="header_text">
-                <div class="fancy">
-                    RELEASE BERRY
+    <div id="actualmain">
+        <main class="content">
+            <header id="BackToTop">
+                <div class="header_text">
+                    <div class="fancy">
+                        RELEASE BERRY
+                    </div>
+                </div>
+            </header>
+            <div class="search_area">
+                <div class="search_container">
+                    <div class="icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <input class="search_box" placeholder="Search for a game">
                 </div>
             </div>
-        </header>
-        <div class="search_area">
-            <div class="search_container">
-                <div class="icon">
-                    <i class="fas fa-search"></i>
-                </div>
-                <input class="search_box" placeholder="Search for a game">
-            </div>
-        </div>
-    </main>
-
+        </main>
+    </div>
     <!--<footer>
         <p> 
             <a href="#BackToTop">Back to top</a>
@@ -48,25 +48,11 @@
     <script type="text/javascript" src="scripts/custom_particles.js"></script>
     <script>
 
-                  /* ####
-        #######
-        ####### Minor tweaks for animations
-        #######
-        ####*/
-        $(".search_box").on("focus", function () {
-            $("header").css({
-                "margin-top": "-50vh"
-            });
-        }).on("focusout", function () {
-            $("header").css({
-                "margin-top": "0"
-            });
+
+        $('.timelay').on('click',function(){
+    
+            element.html(days + ":" + hours + ":" + minutes + ":" + seconds);   
         });
-
-
-
-
-
 
 
         /* ####
@@ -117,7 +103,7 @@
         var intervals = {}; // All the running timers, can be accessed to stop realeased titles
 
         // Request the game list from the local files
-        $.getJSON("old/data/games.json", {}, function (data) {
+        $.getJSON("data/games.json", {}, function (data) {
 
             for (const [key, value] of Object.entries(data)) {
 
@@ -193,16 +179,13 @@
                         var minutes = pad(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
                             2);
                         var seconds = pad(Math.floor((distance % (1000 * 60)) / 1000), 2);
-                        days ++;
 
-                        if (days > 2) {
-                            element.html(days + " days");
-                        } else if (days > 1) {
-                            days --;
-                            element.html(days + ":" + hours + ":" + minutes + ":" + seconds);
+                        if (days > 1) {
+                            element.html(days + "D " + hours + "H " + minutes + "M " + seconds + "S");
+                        } else if (days < 1){
+                            element.html(hours + "H " + minutes + "M " + seconds + "S");
                         } else {
-                           days --;
-                            element.html(hours + ":" + minutes + ":" + seconds);   
+                            element.html(days + "D " + hours + "H " + minutes + "M " + seconds + "S"); 
                         }
 
 
@@ -210,7 +193,7 @@
                 })(timer);
 
                 timer_i++;
-             }
+            }
         });
 
 
@@ -236,11 +219,18 @@
                 <div class="overlay"></div>
                 <p class="game_title">${gameTitle}</p>
                 <div class="timerbox">
-                    <p id="${timerId}">${status}</p>
+                 <p id="${timerId}">${status}</p>
                 </div>
             </div>`;
         }
     </script>
+    <!--between gametitle and timerbox
+                <divu class="timetell">
+                    <p class="timetelld">Days</p>
+                    <p class="timetellh">Hours</p>
+                    <p class="timetellm">Minutes</p>
+                    <p class="timetells">Seconds</p>
+                </divu> -->
 </body>
 
 
