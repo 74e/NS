@@ -27,7 +27,7 @@ p {
 }
 
 body {
-    background: black;
+    background: var(--dark-blue);
     display: flex;
     justify-content: center;
 
@@ -56,7 +56,7 @@ header {
 }
 
 header .header_text {
-    background-color: transparent;
+    background-color: var(--dark-blue);
     padding: 3vh 5vw;
     display: flex;
     justify-content: center;
@@ -167,24 +167,23 @@ header .fancy {
     margin-left: 5px;
     margin-right: 5px;
     width: 520px;
-    height: 65px;
+    height: 55px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: Montserrat;
     color: var(--light-font);
     flex-direction:row;
-    background-color: black;
-    background: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 6%, rgba(255,255,255,0) 0%, rgba(30,170,252,1) 76%, rgb(66, 89, 165) 60%, rgba(0,0,0,0) 93%, rgba(0,0,0,0) 100%); 
+    background-color: var(--dark-blue);
+    background-image: var(--gradient-bg);
     box-shadow: var(--box-shadow);
     position: relative;
     overflow: hidden;
     transition: all .5s;
     z-index: 2;
-    border: none;
-    opacity: 1;
+    border: 2px solid var(--dark-blue);
+    opacity: 0.8;
 }
-    
 
 
 .box:hover{
@@ -201,7 +200,7 @@ header .fancy {
 
 .timelay{
     position: absolute;
-    background-color: black;
+    background-color: var(--dark-blue);
     font-family: Gotham;
     z-index: 6;
     width: 100%;
@@ -248,16 +247,16 @@ header .fancy {
     font-size: 19px;
     text-align: center;
 }
+
 .overlay {
     position: absolute;
     width: 100%;
     height: 100%;
     left: 0;
     top: 0;
-    background-color: black;
+    background-color: var(--dark-blue);
     opacity: 0.7;
     z-index: 3;
-    display: none;
 }
 
 footer {
@@ -317,43 +316,47 @@ footer a {
     opacity: 0.1;
 }
 
-@media screen and (max-width: 860px) {
-    body {
-    background: rgba(0,0,0,1);
+@media screen and (max-width: 1800px) {
+    .content {
+        width: 90%;
     }
+    .search_container {
+        width: 600px;
+    }
+    .search_container .search_box {
+        font-size: 16px;
+    }
+    
+    .box{
+        flex-direction: column;
+        width: 400px;
+        height: 65px;
+    }
+    .box>p {
+        width: 90% !important;
+    }
+    .box .timerbox{
+        width: 90% !important;
+    }
+}
+
+@media screen and (max-width: 860px) {
     header {
         font-size: 7vw;
         height: 100px;
         padding: 50px 0 10px 0;
         margin: 0;
     }
-    .box>p {
-    width: 100%;
-}
-    .game_title{
-    font-size: 17px;
-}
-    .timelay{
-        background-color: black;
-    }
-    .overlay{
-        display: none;
-        background-color: black;
-    }
     .box{
-        border: none;
-        background-color: black;
-        background: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 6%, rgba(255,255,255,0) 0%, rgba(30,170,252,1) 77%, rgb(66, 89, 165) 60%, rgba(0,0,0,0) 93%, rgba(0,0,0,0) 100%); 
+        flex-direction: column;
         width: 400px;
         height: 65px;
-        opacity: 1;
     }
-    
     .box>p {
         width: 90% !important;
     }
     .box .timerbox{
-        width: 25% !important;
+        width: 90% !important;
     }
     
     #switch{
